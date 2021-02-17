@@ -1,0 +1,54 @@
+﻿@model Videoteka.Models.Film
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Uredi</h1>
+
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="film" class="control-label"></label>
+                <input asp-for="film" class="form-control" />
+                <span asp-validation-for="film" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Redatelj" class="control-label"></label>
+                <input asp-for="Redatelj" class="form-control" />
+                <span asp-validation-for="Redatelj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jezik" class="control-label"></label>
+                <input asp-for="Jezik" class="form-control" />
+                <span asp-validation-for="Jezik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ŽanrId" class="control-label"></label>
+                <select asp-for="ŽanrId" class="form-control" asp-items="ViewBag.ŽanrId"></select>
+                <span asp-validation-for="ŽanrId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Spremi" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Natrag na listu</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

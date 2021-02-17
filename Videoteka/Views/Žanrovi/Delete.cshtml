@@ -1,0 +1,27 @@
+﻿@model Videoteka.Models.Žanr
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Obriši</h1>
+
+<h3>Sigurni ste da želite ovo obrisati?</h3>
+<div>
+    <h4>Žanr</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Filmskižanr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Filmskižanr)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Obriši" class="btn btn-danger" /> |
+        <a asp-action="Index">Natrag na Listu</a>
+    </form>
+</div>

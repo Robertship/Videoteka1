@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Videoteka.Models.Film>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Filmovi</h1>
+
+<p>
+    <a asp-action="Create">Kreiraj novi</a>
+</p>
+
+<br />
+<br />
+<form type="get">
+    Potraži ključnu riječ:
+    <input type ="search" name ="search" />
+    <input type ="submit" value ="traži" />
+</form>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.film)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Redatelj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jezik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Žanr)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.film)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Redatelj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jezik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Žanr.Filmskižanr)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
